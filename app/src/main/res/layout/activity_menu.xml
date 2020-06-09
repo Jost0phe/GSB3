@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gsb"
+        android:scaleType="centerCrop"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="100dp"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Renseigner des nouvelles fiches de frais"
+            android:background="@drawable/my_button_bg"
+            android:layout_gravity="center"
+            android:id="@+id/btn_renseignerNew"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consulter les anciennes fiches de frais"
+            android:background="@drawable/my_button_bg"
+            android:layout_gravity="center"
+            android:id="@+id/btn_3"
+            />
+    </LinearLayout>
+
+</LinearLayout>
