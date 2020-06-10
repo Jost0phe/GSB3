@@ -2,32 +2,60 @@ package com.example.gsbandroidapp.ui;
 
 public class Fiche {
     String ficheId;
-    String valeur1;
-    String valeur2;
+    String etp;
+    String km;
+    String nui;
+    String rep;
 
     public Fiche(){
 
     }
 
-    public Fiche(String valeur1, String valeur2) {
-        this.valeur1 = valeur1;
-        this.valeur2 = valeur2;
+    public Fiche(String ficheId, String etp, String km, String nui, String rep) {
+        this.ficheId = ficheId;
+        this.etp = etp;
+        this.km = km;
+        this.nui = nui;
+        this.rep = rep;
     }
 
-
-    public String getValeur1() {
-        return valeur1;
+    public String getFicheId() {
+        return ficheId;
     }
 
-    public void setValeur1(String valeur1) {
-        this.valeur1 = valeur1;
+    public void setFicheId(String ficheId) {
+        this.ficheId = ficheId;
     }
 
-    public String getValeur2() {
-        return valeur2;
+    public String getEtp() {
+        return etp;
     }
 
-    public void setValeur2(String valeur2) {
-        this.valeur2 = valeur2;
+    public void setEtp(String etp) {
+        this.etp = etp;
+    }
+
+    public String getKm() {
+        return km;
+    }
+
+    public void setKm(String km) {
+        this.km = km;
+    }
+
+    public String getNui() {
+        return nui;
+    }
+
+    public void setNui(String nui) {
+        this.nui = nui;
+    }
+
+    public String getRep() {
+        return rep;
+    }
+
+    public void setRep(String rep) {
+        this.rep = rep;
     }
 }

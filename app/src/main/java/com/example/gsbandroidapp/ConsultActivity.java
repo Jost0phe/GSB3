@@ -31,15 +31,17 @@ public class ConsultActivity extends AppCompatActivity {
     private ListView listViewFiches;
     private List<Fiche> ficheList;
     private Long maxId;
-    private TextView textView1, textView2;
+    private TextView textView1, textView2, textView3, textView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consult);
+        setContentView(R.layout.list_layout);
         listViewFiches = findViewById(R.id.listViewFiches);
         textView1 = findViewById(R.id.textViewValue1);
         textView2 = findViewById(R.id.textViewValue2);
+        textView3 = findViewById(R.id.textViewValue3);
+        textView4 = findViewById(R.id.textViewValue4);
         ficheList = new ArrayList<>();
     }
 
@@ -53,7 +55,6 @@ public class ConsultActivity extends AppCompatActivity {
                     maxId = dataSnapshot.getChildrenCount();
                     Toast.makeText(ConsultActivity.this, String.valueOf(maxId), Toast.LENGTH_SHORT).show();
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -66,15 +67,18 @@ public class ConsultActivity extends AppCompatActivity {
                         Integer maxIdInt = maxId.intValue();
                         Log.d("maxIdInt", String.valueOf(maxIdInt));
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String value1 = ds.child("valeur1").getValue().toString();
-                            String value2 = ds.child("valeur2").getValue().toString();
+                            String value1 = ds.child("etp").getValue().toString();
+                            String value2 = ds.child("km").getValue().toString();
+                            String value3 = ds.child("nui").getValue().toString();
+                            String value4 = ds.child("rep").getValue().toString();
                             textView1.setText(value1);
                             textView2.setText(value2);
+                            textView3.setText(value3);
+                            textView4.setText(value4);
                         }
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
                 });
             }

@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RenseignerActivity extends AppCompatActivity {
 
-    private EditText valeur1, valeur2;
+    private EditText etp,km,nui,rep;
     private Button btnSave;
     private Long maxId;
 
@@ -30,8 +30,10 @@ public class RenseignerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_renseigner);
-        valeur1 = findViewById(R.id.input_valeur1);
-        valeur2 = findViewById(R.id.input_valeur2);
+        etp = findViewById(R.id.input_etp);
+        km = findViewById(R.id.input_km);
+        nui = findViewById(R.id.input_nui);
+        rep = findViewById(R.id.input_rep);
         btnSave = findViewById(R.id.btn_save);
 
         databaseFiche = FirebaseDatabase.getInstance().getReference().child("fiches");
@@ -63,17 +65,18 @@ public class RenseignerActivity extends AppCompatActivity {
     }
 
     private void addFiche(){
-        String storedValue1 = valeur1.getText().toString().trim();
-        String storedValue2 = valeur2.getText().toString().trim();
+        String storedEtp = etp.getText().toString().trim();
+        String storedKm = km.getText().toString().trim();
+        String storedNui = nui.getText().toString().trim();
+        String storedRep = rep.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(storedValue1)){
+        if(!TextUtils.isEmpty(storedEtp)){
             String id = String.valueOf(maxId+1);
-            Fiche fiche = new Fiche(storedValue1, storedValue2);
+            Fiche fiche = new Fiche(id,storedEtp,storedKm,storedNui,storedRep);
             databaseFiche.child(id).setValue(fiche);
             Toast.makeText(this,"Fiche added", Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this,"Enter Values", Toast.LENGTH_LONG).show();
         }
     }
-
 }
