@@ -9,19 +9,11 @@ public class Fiche {
 
     }
 
-    public Fiche(String ficheId, String valeur1, String valeur2) {
-        this.ficheId = ficheId;
+    public Fiche(String valeur1, String valeur2) {
         this.valeur1 = valeur1;
         this.valeur2 = valeur2;
     }
 
-    public String getFicheId() {
-        return ficheId;
-    }
-
-    public void setFicheId(String ficheId) {
-        this.ficheId = ficheId;
-    }
 
     public String getValeur1() {
         return valeur1;
