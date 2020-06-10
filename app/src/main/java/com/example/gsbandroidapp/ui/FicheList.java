@@ -1,4 +1,4 @@
-package com.example.gsbandroidapp.ui;
+/*package com.example.gsbandroidapp.ui;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -17,7 +17,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 public class FicheList extends ArrayAdapter<Fiche> {
-    private Activity context;
+*//*    private Activity context;
     private List<Fiche>ficheList;
 
     public FicheList(Activity context, List<Fiche>ficheList){
@@ -41,5 +41,5 @@ public class FicheList extends ArrayAdapter<Fiche> {
         textViewValue2.setText(fiche.getValeur2());
 
         return listViewItem;
-    }
-}
+    }*//*
+}*/

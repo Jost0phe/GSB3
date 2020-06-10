@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gsbandroidapp.ui.Fiche;
-import com.example.gsbandroidapp.ui.FicheList;
 import com.google.android.gms.common.data.DataBuffer;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +27,7 @@ import java.util.List;
 
 public class ConsultActivity extends AppCompatActivity {
 
-    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference().child("fiches");
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference("fiches");
     private ListView listViewFiches;
     private List<Fiche> ficheList;
     private Long maxId;
@@ -66,13 +65,11 @@ public class ConsultActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         Integer maxIdInt = maxId.intValue();
                         Log.d("maxIdInt", String.valueOf(maxIdInt));
-                        for (int i = 1; i <= maxIdInt; i++) {
-                            String value1 = dataSnapshot.child(String.valueOf(i)).child("valeur1").getValue().toString();
-                            String value2 = dataSnapshot.child(String.valueOf(i)).child("valeur2").getValue().toString();
-                            Toast.makeText(ConsultActivity.this, value1, Toast.LENGTH_SHORT).show();
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            String value1 = ds.child("valeur1").getValue().toString();
+                            String value2 = ds.child("valeur2").getValue().toString();
                             textView1.setText(value1);
                             textView2.setText(value2);
-
                         }
                     }
                     @Override
