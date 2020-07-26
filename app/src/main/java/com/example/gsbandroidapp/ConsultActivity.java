@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.gsbandroidapp.ui.Fiche;
 import com.google.android.gms.common.data.DataBuffer;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +50,7 @@ public class ConsultActivity extends AppCompatActivity {
     protected void onStart() {
             super.onStart();
 
-            mRootRef.addValueEventListener(new ValueEventListener() {
+/*            mRootRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     maxId = dataSnapshot.getChildrenCount();
@@ -58,23 +59,30 @@ public class ConsultActivity extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                }
-            });
+
+            });}*/
 
                 mRootRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        Integer maxIdInt = maxId.intValue();
-                        Log.d("maxIdInt", String.valueOf(maxIdInt));
+/*                       Integer maxIdInt = maxId.intValue();
+                         Log.d("maxIdInt", String.valueOf(maxIdInt));*/
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String value1 = ds.child("etp").getValue().toString();
-                            String value2 = ds.child("km").getValue().toString();
-                            String value3 = ds.child("nui").getValue().toString();
-                            String value4 = ds.child("rep").getValue().toString();
-                            textView1.setText(value1);
-                            textView2.setText(value2);
-                            textView3.setText(value3);
-                            textView4.setText(value4);
+                            Boolean condition = user.getEmail() == ds.child("ficheUserEmail").getValue();
+                            if(condition == true) {
+                                String value1 = ds.child("etp").getValue().toString();
+                                String value2 = ds.child("km").getValue().toString();
+                                String value3 = ds.child("nui").getValue().toString();
+                                String value4 = ds.child("rep").getValue().toString();
+                                textView1.setText(value1);
+                                textView2.setText(value2);
+                                textView3.setText(value3);
+                                textView4.setText(value4);
+                            }else{
+                                Toast.makeText(ConsultActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                     @Override

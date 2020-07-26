@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.gsbandroidapp.ui.Fiche;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -65,6 +67,8 @@ public class RenseignerActivity extends AppCompatActivity {
     }
 
     private void addFiche(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String ficheUserEmail = user.getEmail();
         String storedEtp = etp.getText().toString().trim();
         String storedKm = km.getText().toString().trim();
         String storedNui = nui.getText().toString().trim();
@@ -74,9 +78,9 @@ public class RenseignerActivity extends AppCompatActivity {
             String id = String.valueOf(maxId+1);
             Fiche fiche = new Fiche(id,storedEtp,storedKm,storedNui,storedRep);
             databaseFiche.child(id).setValue(fiche);
-            Toast.makeText(this,"Fiche added", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Fiche added, USEREMAIL = "+ ficheUserEmail.trim(), Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(this,"Enter Values", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Enter values ", Toast.LENGTH_LONG).show();
         }
     }
 }
