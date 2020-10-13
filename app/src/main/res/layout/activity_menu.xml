@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="100dp"
+        android:paddingTop="75dp"
         >
         <Button
             android:layout_width="match_parent"
@@ -41,6 +41,15 @@
             android:background="@drawable/my_button_bg"
             android:layout_gravity="center"
             android:id="@+id/btn_consult"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:text="Consulter votre profil"
+            android:background="@drawable/my_button_bg"
+            android:layout_gravity="center"
+            android:id="@+id/btn_Profile"
             />
         <Button
             android:layout_width="match_parent"

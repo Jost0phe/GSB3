@@ -7,7 +7,7 @@
     android:gravity="center"
     >
 
-<!--    <ImageView
+<ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/gsb"
@@ -15,121 +15,111 @@
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:layout_gravity="center"
-        />-->
+        />
 
-        <LinearLayout
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
+            android:rowCount="10"
+            android:columnCount="1"
             >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:id="@+id/textLabelValue5"
-                android:gravity="center"
-                android:textAlignment="center"
                 android:text="Date des frais:"
+                android:layout_column="0"
+                android:layout_row="0"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:id="@+id/textViewValue5"
-                android:gravity="center"
-                android:textAlignment="center"
-                />
-        </LinearLayout>
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        >
+                android:layout_column="0"
+                android:layout_row="1"
+                android:textAlignment="textEnd"
+                android:gravity="end" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:id="@+id/textLabelValue1"
-            android:gravity="center"
-            android:textAlignment="center"
             android:text="Forfait étape:"
+            android:layout_column="0"
+            android:layout_row="2"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:id="@+id/textViewValue1"
-            android:gravity="center"
-            android:textAlignment="center"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:layout_gravity="end"
+            android:gravity="end"
             />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:id="@+id/textLabelValue2"
-            android:gravity="center"
-            android:textAlignment="center"
             android:text="Forfait kilomètre:"
+            android:layout_column="0"
+            android:layout_row="4"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:id="@+id/textViewValue2"
-            android:gravity="center"
-            android:textAlignment="center"
+            android:layout_column="0"
+            android:layout_row="5"
+            android:textAlignment="textEnd"
+            android:gravity="end"
             />
-    </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:id="@+id/textLabelValue3"
-                android:gravity="center"
-                android:textAlignment="center"
                 android:text="Forfait nuit:"
+                android:layout_column="0"
+                android:layout_row="6"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:id="@+id/textViewValue3"
-                android:gravity="center"
-                android:textAlignment="center"
+                android:layout_column="0"
+                android:layout_row="7"
+                android:textAlignment="textEnd"
+                android:gravity="end"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:id="@+id/textLabelValue4"
-                android:gravity="center"
-                android:textAlignment="center"
                 android:text="Forfait repas:"
+                android:layout_column="0"
+                android:layout_row="8"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:id="@+id/textViewValue4"
-                android:gravity="center"
-                android:textAlignment="center"
+                android:layout_column="0"
+                android:layout_row="9"
+                android:textAlignment="textEnd"
+                android:gravity="end"
                 />
-        </LinearLayout>
+        </GridLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -155,4 +145,12 @@
                 android:background="@drawable/my_button_bg"
                 />
     </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Menu"
+        android:background="@drawable/my_button_bg"
+        android:id="@+id/btnMenu"
+        />
 </LinearLayout>

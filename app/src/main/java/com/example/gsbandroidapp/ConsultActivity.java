@@ -42,7 +42,7 @@ public class ConsultActivity extends AppCompatActivity {
     private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference("fiches");
     private Long maxId;
     private TextView textView1, textView2, textView3, textView4, textView5;
-    private Button btnPrevious, btnNext;
+    private Button btnPrevious, btnNext, btnMenu;
     private int currentKey = -1;
 
 
@@ -57,12 +57,21 @@ public class ConsultActivity extends AppCompatActivity {
         textView5 = findViewById(R.id.textViewValue5);
         btnNext = findViewById(R.id.btnNextFiche);
         btnPrevious = findViewById(R.id.btnPreviousFiche);
+        btnMenu = findViewById(R.id.btnMenu);
     }
 
         @Override
     protected void onStart() {
             super.onStart();
 
+            btnMenu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent v = new Intent(ConsultActivity.this, MenuActivity.class);
+                    startActivity(v);
+                    finish();
+                }
+            });
             if(currentKey == -1) {
                 currentKey = 1;
                 btnPrevious.setVisibility(View.INVISIBLE);

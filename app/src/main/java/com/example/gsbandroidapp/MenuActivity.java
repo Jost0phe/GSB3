@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button btn1, btn2, btn3;
+    private Button btn1, btn2, btn3, btnProfile;
     private FirebaseAuth mAuth;
 
     @Override
@@ -24,6 +24,7 @@ public class MenuActivity extends AppCompatActivity {
         btn1 = findViewById(R.id.btn_renseignerNew);
         btn2 = findViewById(R.id.btn_consult);
         btn3 = findViewById(R.id.btn_logOff);
+        btnProfile = findViewById(R.id.btn_Profile);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,15 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 Intent s = new Intent(MenuActivity.this, MainActivity.class);
+                startActivity(s);
+                finish();
+            }
+        });
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent s = new Intent(MenuActivity.this, ProfilActivity.class);
                 startActivity(s);
                 finish();
             }
