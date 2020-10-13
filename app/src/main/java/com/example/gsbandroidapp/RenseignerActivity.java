@@ -22,11 +22,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RenseignerActivity extends AppCompatActivity {
 
-    private EditText etp,km,nui,rep;
+    private EditText etp,km,nui,rep,date;
     private Button btnSave;
     private Long maxId;
 
-    DatabaseReference databaseFiche;
+    DatabaseReference databaseFiche = FirebaseDatabase.getInstance().getReference("fiches");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,13 @@ public class RenseignerActivity extends AppCompatActivity {
         km = findViewById(R.id.input_km);
         nui = findViewById(R.id.input_nui);
         rep = findViewById(R.id.input_rep);
+        date = findViewById(R.id.input_date);
         btnSave = findViewById(R.id.btn_save);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String ficheUserId = user.getUid();
 
-        databaseFiche = FirebaseDatabase.getInstance().getReference().child("fiches");
-        databaseFiche.addValueEventListener(new ValueEventListener() {
+        DatabaseReference newRef = databaseFiche.child(ficheUserId);;
+        newRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
@@ -69,15 +72,18 @@ public class RenseignerActivity extends AppCompatActivity {
     private void addFiche(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String ficheUserEmail = user.getEmail();
+        String ficheUserId = user.getUid();
         String storedEtp = etp.getText().toString().trim();
         String storedKm = km.getText().toString().trim();
         String storedNui = nui.getText().toString().trim();
         String storedRep = rep.getText().toString().trim();
+        String storedDate = date.getText().toString().trim();
+        DatabaseReference functionRef = databaseFiche.child(ficheUserId);
 
         if(!TextUtils.isEmpty(storedEtp)){
             String id = String.valueOf(maxId+1);
-            Fiche fiche = new Fiche(id,storedEtp,storedKm,storedNui,storedRep);
-            databaseFiche.child(id).setValue(fiche);
+            Fiche fiche = new Fiche(id,storedEtp,storedKm,storedNui,storedRep,storedDate);
+            functionRef.child(id).setValue(fiche);
             Toast.makeText(this,"Fiche added, USEREMAIL = "+ ficheUserEmail.trim(), Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this,"Enter values ", Toast.LENGTH_LONG).show();

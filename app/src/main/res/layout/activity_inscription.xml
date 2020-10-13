@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/input_mail"
             android:background="@drawable/my_button_bg2"
+            android:inputType="textEmailAddress"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -58,7 +59,7 @@
         android:text="S'inscrire"
         android:layout_gravity="center"
         android:id="@+id/btn_signin"
-        android:background="@drawable/my_button_bg2"
+        android:background="@drawable/my_button_bg"
         />
 
 </LinearLayout>

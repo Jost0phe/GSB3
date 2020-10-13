@@ -10,12 +10,13 @@ public class Fiche {
     String km;
     String nui;
     String rep;
+    String date;
 
     public Fiche(){
 
     }
 
-    public Fiche(String ficheId, String etp, String km, String nui, String rep) {
+    public Fiche(String ficheId, String etp, String km, String nui, String rep, String date) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         this.ficheUserEmail = user.getEmail();
         this.ficheId = ficheId;
@@ -23,8 +24,12 @@ public class Fiche {
         this.km = km;
         this.nui = nui;
         this.rep = rep;
+        this.date = date;
     }
+
     public String getFicheUserEmail() { return ficheUserEmail; }
+
+    public String getDate() { return date; }
 
     public String getFicheId() {
         return ficheId;

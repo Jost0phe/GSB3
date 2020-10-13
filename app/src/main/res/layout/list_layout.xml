@@ -7,7 +7,7 @@
     android:gravity="center"
     >
 
-    <ImageView
+<!--    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/gsb"
@@ -15,16 +15,33 @@
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:layout_gravity="center"
-        />
+        />-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingTop="@android:dimen/app_icon_size"
-        >
-    <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:id="@+id/textLabelValue5"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="Date des frais:"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:id="@+id/textViewValue5"
+                android:gravity="center"
+                android:textAlignment="center"
+                />
+        </LinearLayout>
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -95,13 +112,6 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,5 +130,29 @@
                 android:textAlignment="center"
                 />
         </LinearLayout>
-    </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plus ancienne"
+                android:id="@+id/btnPreviousFiche"
+                android:layout_weight="0.5"
+                android:background="@drawable/my_button_bg"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plus récente"
+                android:id="@+id/btnNextFiche"
+                android:layout_weight="0.5"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/my_button_bg"
+                />
+    </RelativeLayout>
 </LinearLayout>

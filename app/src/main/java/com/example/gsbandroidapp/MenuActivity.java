@@ -21,10 +21,11 @@ public class MenuActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mAuth.getCurrentUser();
 
-        btn2 = findViewById(R.id.btn_renseignerNew);
-        btn3 = findViewById(R.id.btn_3);
+        btn1 = findViewById(R.id.btn_renseignerNew);
+        btn2 = findViewById(R.id.btn_consult);
+        btn3 = findViewById(R.id.btn_logOff);
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent s = new Intent(MenuActivity.this,RenseignerActivity.class);
@@ -32,11 +33,21 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        btn3.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent s = new Intent(MenuActivity.this,ConsultActivity.class);
                 startActivity(s);
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent s = new Intent(MenuActivity.this, MainActivity.class);
+                startActivity(s);
+                finish();
             }
         });
     }

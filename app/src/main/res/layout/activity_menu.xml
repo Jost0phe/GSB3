@@ -33,16 +33,23 @@
             android:layout_gravity="center"
             android:id="@+id/btn_renseignerNew"
             />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
             android:text="Consulter les anciennes fiches de frais"
             android:background="@drawable/my_button_bg"
             android:layout_gravity="center"
-            android:id="@+id/btn_3"
+            android:id="@+id/btn_consult"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:text="Déconnexion"
+            android:background="@drawable/my_button_bg"
+            android:layout_gravity="center"
+            android:id="@+id/btn_logOff"
             />
     </LinearLayout>
 

@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this,"Connecté", Toast.LENGTH_SHORT).show();
                             Intent s = new Intent(LoginActivity.this,MenuActivity.class);
                             startActivity(s);
                             finish();

@@ -36,6 +36,20 @@
              android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+                 android:text="Date des frais (Format : yyyy-MM-dd):"
+                 android:gravity="center"
+                 />
+             <EditText
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/input_date"
+                 android:gravity="center"
+                 android:textAlignment="center"
+                 />
               <TextView
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
